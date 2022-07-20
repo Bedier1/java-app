@@ -3,7 +3,7 @@
 library identifier: 'jenkins-shared-library@master' , retriever: modernSCM(
     [$class: 'GitSCMSource' ,  
      remote: 'https://github.com/Bedier1/jenkins-shared-library'
-     
+     ]
 )
 
 
