@@ -35,7 +35,7 @@ pipeline {
                 script {
 
                 echo " testing image"
-                sh ' docker pull mohamedbedier/javaapp:v1
+                sh ' docker pull mohamedbedier/javaapp:last '
                 sh ' docker run  -d -p 7070:8080 mohamedbedier/javaapp:last '
             }
             }
