@@ -23,7 +23,6 @@ pipeline {
             }
         }
 
-        # mohamedbedier/javaapp:v2
 
 
            stage('pushing image ') {
