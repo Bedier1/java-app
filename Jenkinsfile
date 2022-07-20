@@ -33,7 +33,7 @@ pipeline {
                     pushingimage 'mohamedbedier/javaapp:v2'
                    }
             }
-            }
+           
         }
 
 
