@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
 
-                 buildingimage ' mohamedbedier/javaapp:v2'
+                 buildingimage 'mohamedbedier/javaapp:v2'
                 }
             }
         }
