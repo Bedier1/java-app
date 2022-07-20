@@ -6,10 +6,10 @@ pipeline {
         stage('build image') {
 
             steps {
-                script {
+               
 
-                    sh 'docker build -t mohamedbedier/javaapp:v1 .'
-            }
+                    sh ' docker build -t mohamedbedier/javaapp:last . '
+            
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
                    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh " echo  $PASSWORD | docker login -u mohamedbedier --password-stdin "
-                    sho 'docker push mohamedbedier/javaapp:v1'
+                    sho 'docker push mohamedbedier/javaapp:last'
                     }
             }
             }
