@@ -21,10 +21,7 @@ pipeline {
 
 
            stage('pushing image ') {
-               expression {
-                    BRANCH_NAME == 'master'
-                    
-                } 
+
              steps {
                 script {
 
