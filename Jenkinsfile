@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
 
-                    sh 'docker build -t mohamedbedier/javaapp:v1'
+                    sh 'docker build -t mohamedbedier/javaapp:v1 .'
             }
             }
         }
