@@ -18,12 +18,12 @@ pipeline {
            stage('pushing image ') {
 
              steps {
-                script {
+             
 
                    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh " echo  $PASSWORD | docker login -u $USERNAME --password-stdin "
+                    sh " echo  ' $PASSWORD ' | docker login -u $USERNAME --password-stdin "
                     sho 'docker push mohamedbedier/javaapp:last'
-                    }
+                    
             }
             }
         }
