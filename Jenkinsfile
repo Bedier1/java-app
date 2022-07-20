@@ -1,3 +1,13 @@
+#!/usr/bin/env groovy
+
+library identifier: 'jenkins-shared-library@master' , retriever: modernSCM(
+    [$class: 'GitSCMSource' ,  
+     remote: 'https://github.com/Bedier1/jenkins-shared-library'
+     
+)
+
+
+
 pipeline {
     
     agent any
@@ -6,24 +16,23 @@ pipeline {
         stage('build image') {
 
             steps {
-               
+                script {
 
-                    sh ' docker build -t mohamedbedier/javaapp:last . '
-            
+                 buildingimage ' mohamedbedier/javaapp:v2'
+                }
             }
         }
 
+        # mohamedbedier/javaapp:v2
 
 
            stage('pushing image ') {
 
              steps {
-             
+                 script {
 
-                   withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh " echo   $PASSWORD  | docker login -u $USERNAME --password-stdin "
-                    sh 'docker push mohamedbedier/javaapp:last'
-                    
+                    pushingimage 'mohamedbedier/javaapp:v2'
+                   }
             }
             }
         }
@@ -35,7 +44,7 @@ pipeline {
                 script {
 
                 echo " testing image"
-                sh ' docker pull mohamedbedier/javaapp:last '
+                sh ' docker pull mohamedbedier/javaapp:v2 '
                
             }
             }
