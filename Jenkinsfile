@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
 
-                 buildingimage 'mohamedbedier/javaapp:v2'
+                 buildingimage 'mohamedbedier/javaapp:v3'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
              steps {
                  script {
 
-                    pushingimage 'mohamedbedier/javaapp:v2'
+                    pushingimage 'mohamedbedier/javaapp:v3'
                    }
             }
            
@@ -43,8 +43,8 @@ pipeline {
                 script {
 
                 echo " testing image"
-                sh ' docker pull mohamedbedier/javaapp:v2 '
-               
+                sh ' docker pull mohamedbedier/javaapp:v3 '
+                sh ' docker run -d   mohamedbedier/javaapp:v3 '               
             }
             }
         }
